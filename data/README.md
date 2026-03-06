@@ -6,10 +6,10 @@ Raw `.BIN` recordings from the NimBrace device used in the paper.
 
 | File | Recording | Date | Approx. Distance | Loops |
 |------|-----------|------|-------------------|-------|
-| `run_A.BIN` | A | Jan 24, 2026 | 2138 m | ~3.5 |
-| `run_B.BIN` | B | Feb 1, 2026 | 2428 m | ~4 |
-| `run_C.BIN` | C | Feb 2, 2026 | 2339 m | ~3.5 (GPS cross-validated) |
-| `run_D.BIN` | D | Feb 4, 2026 | 2407 m | ~4 |
+| `run_A.BIN` | A | Jan 24, 2026 | 2138 m | ~3 |
+| `run_B.BIN` | B | Feb 1, 2026 | 2428 m | ~3 |
+| `run_C.BIN` | C | Feb 2, 2026 | 2339 m | ~3 (GPS cross-validated) |
+| `run_D.BIN` | D | Feb 4, 2026 | 2407 m | ~3 |
 
 All recordings are closed-loop walks in mixed indoor/outdoor environment
 (underground garage + sidewalks, Wroclaw, Poland). Single healthy male subject,
