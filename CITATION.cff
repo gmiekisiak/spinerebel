@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+authors:
+  - family-names: "Miekisiak"
+    given-names: "Grzegorz"
+    orcid: ""
+    affiliation: "Vratislavia Medica Hospital; SpineRebel Technology"
+title: "SpineRebel: Nadir-Based Zero-Cycle PDR from Spine-Mounted IMU"
+version: 1.0.0
+date-released: 2026-03-01
+url: "https://github.com/gmiekisiak/spinerebel"
+license: "LicenseRef-Academic-NonCommercial"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Miekisiak"
+      given-names: "Grzegorz"
+  title: "Torso-Mounted Pedestrian Dead Reckoning Using Nadir-Based Zero-Cycle Heading and Differential Accelerometry"
+  journal: "IEEE Sensors Letters"
+  year: 2026
+  notes: "Submitted"

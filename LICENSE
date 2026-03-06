@@ -1,0 +1,48 @@
+Academic and Non-Commercial Use License
+
+Copyright (c) 2025-2026 Grzegorz Miekisiak / SpineRebel Technology
+All rights reserved.
+
+PATENT NOTICE
+The Zero-Cycle principle and related methods described in this repository
+are the subject of pending PCT patent applications. This license does not
+grant any rights under those patents.
+
+PERMITTED USE
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated data files (the "Materials"), to use,
+copy, modify, and redistribute the Materials for academic research and
+non-commercial purposes only, subject to the following conditions:
+
+1. The above copyright notice, this permission notice, and the patent
+   notice shall be included in all copies or substantial portions of the
+   Materials.
+
+2. Any publications, presentations, or works that use or reference these
+   Materials must cite the original paper:
+
+     G. Miekisiak, "Torso-Mounted Pedestrian Dead Reckoning Using
+     Nadir-Based Zero-Cycle Heading and Differential Accelerometry,"
+     IEEE Sensors Letters, submitted 2026.
+
+3. The Materials shall not be used for commercial purposes. Commercial
+   purposes include, but are not limited to: incorporation into commercial
+   products or services, use in commercial R&D, or any activity intended
+   to generate revenue.
+
+4. Derivative works must be distributed under the same terms as this
+   license.
+
+COMMERCIAL LICENSING
+For commercial use, licensing inquiries, or patent licensing, contact:
+  grzegorz@spinerebel.com
+  SpineRebel Technology, Wroclaw, Poland
+
+DISCLAIMER
+THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE MATERIALS OR THE USE OR OTHER
+DEALINGS IN THE MATERIALS.
