@@ -29,8 +29,8 @@ THE FORMULA:
 
 NO USER INPUT. NO CALIBRATION. PURE PHYSICS.
 
-Author: Grzegorz Miekisiak, MD PhD / SpineRebel Technology
-(c) 2025-2026 SpineRebel Technology — Patent Protected
+Author: Grzegorz Miekisiak, MD PhD / SpineRebel
+(c) 2025-2026 SpineRebel — Patent Pending
 Academic and non-commercial use only. See LICENSE.
 """
 
