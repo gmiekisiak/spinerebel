@@ -1,6 +1,6 @@
 // ============================== nimbrace.ino (MAIN) ==============================
 // NimBrace Firmware v2.2.6
-// (c) 2025-2026 Grzegorz Miekisiak / SpineRebel Technology
+// (c) 2025-2026 Grzegorz Miekisiak / SpineRebel
 // Academic and non-commercial use only. See LICENSE.
 // Zero-Cycle principle: PCT patent pending.
 //
