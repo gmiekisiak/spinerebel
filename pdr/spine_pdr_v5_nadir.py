@@ -21,8 +21,8 @@ Method:
   4. Stride from differential accelerometry (T4-S1 "35 cm ruler")
   5. NZ pitch shift from hub → terrain classification (free byproduct)
 
-Author: Grzegorz Miekisiak, MD PhD / SpineRebel Technology
-(c) 2026 SpineRebel Technology — Patent Protected
+Author: Grzegorz Miekisiak, MD PhD / SpineRebel
+(c) 2026 SpineRebel — Patent Pending
 Academic and non-commercial use only. See LICENSE.
 """
 
