@@ -1,6 +1,6 @@
 // ============================== Cradle.ino ==============================
 // NimBrace v2.2.6 - Transfer and serial command handling
-// (c) 2025-2026 Grzegorz Miekisiak / SpineRebel Technology
+// (c) 2025-2026 Grzegorz Miekisiak / SpineRebel
 // Academic and non-commercial use only. See LICENSE.
 // CHANGES IN v2.2.6:
 // - transmitFile: removed periodic flush (was blocking at SD block boundaries)
