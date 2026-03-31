@@ -1,6 +1,6 @@
 // ============================== Logging.ino ==============================
 // NimBrace v2.2.6 - Data logging and SD card operations
-// (c) 2025-2026 Grzegorz Miekisiak / SpineRebel Technology
+// (c) 2025-2026 Grzegorz Miekisiak / SpineRebel
 // Academic and non-commercial use only. See LICENSE.
 //
 // CHANGES IN v2.2.6:
