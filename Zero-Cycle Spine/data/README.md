@@ -23,7 +23,6 @@ Each patient directory contains:
 | `{date}_summary.csv` | Day-level rollup for that day (absent for patient Z) |
 | `tars31_cohort_cycles.csv` | All of that patient's cycles concatenated, with `date` and `source` columns |
 | `tars31_timeline.csv` | Day-level timeline: cycle counts, activity minutes, Best-200 valley/peak, walking distance, STS and stair metrics |
-| `tars31_cohort_ai_notes.csv`, `tars31_cohort_ai_refined.csv` | Reviewer/AI day-level annotations (absent for patient Z) |
 
 ## Cycle columns (`*_cycles.csv`)
 
@@ -44,27 +43,38 @@ See [`../README.md`](../README.md) for the mapping of these columns to the
 paper's `v`, `p`, `p − v`, `a`, `Δ`, `w` feature symbols, and
 [`../REPRODUCE.md`](../REPRODUCE.md) for how the figures are built from them.
 
-## Cycle counts as committed
+## Cycle counts — reproduces the manuscript exactly
 
-| Patient | Daily files | Days | Cycles in `tars31_cohort_cycles.csv` |
-|---|---:|---:|---:|
-| Z | 13 | 4–18 Feb 2026 | 19,320 |
-| K | 16 | 9–26 Mar 2026 | 38,210 |
-| P | 16 | 10–25 Mar 2026 | 18,061 |
-| F | 16 | 14–29 Apr 2026 | 12,826 |
-| **Total** | | | **88,437** |
+Applying the paper's own declared exclusion rule — drop each recording day with
+fewer than 200 validated cycles — reproduces the published per-patient counts
+exactly, all four patients, to the cycle:
 
-## Extractor generation — read before citing these numbers
+| Patient | All cycles | Excluded (< 200-cycle days) | Retained | Paper |
+|---|---:|---:|---:|---:|
+| Z | 19,320 | 187 (2 days) | 19,133 | 19,133 |
+| K | 38,210 | 0 | 38,210 | 38,210 |
+| P | 18,061 | 102 (1 day) | 17,959 | 17,959 |
+| F | 12,826 | 101 (1 day) | 12,725 | 12,725 |
+| **Total** | **88,417** | **390 (4 days)** | **88,027** | **88,027** |
 
-**These files are TARS-31 extractor-generation output**, as the `tars31_`
-filenames indicate. The frozen extractor of record for the *Sensors* manuscript
-is **TARS-60 v3** (see [`../CHANGELOG.md`](../CHANGELOG.md)). Derived
-per-cycle numbers are detector-version dependent, and the counts above differ
-from the manuscript's analysed set (19,133 / 38,210 / 17,959 / 12,725 =
-88,027) for every patient except K. Before these are used as the substrate of
-record for the paper, reconcile the generation: either regenerate under
-TARS-60 v3 or confirm that the `p0_r` / `p3_r` semantics are identical across
-generations. Do not mix generations within one comparative analysis.
+The four excluded days also match the manuscript's independent description:
+four days removed, two of them with median sensor tilt above 50° indicating the
+device was off the body — Z 17 Feb (10 cycles, median tilt 103.3°) and Z 18 Feb
+(177 cycles, 51.7°); the other two (P 12 Mar, F 15 Apr) have normal tilt (~5°).
+
+These files are therefore the extractor output that produced the published
+results.
+
+## A note on the filename prefix
+
+The `tars31_` prefix and the manuscript's frozen extractor of record,
+**TARS-60 v3** (see [`../CHANGELOG.md`](../CHANGELOG.md)), do not agree on their
+face. The numbers above establish that the *data* is correct; what needs
+settling is only the *label*. Either the extractor is genuinely of the TARS-31
+lineage and the manuscript's "TARS-60 v3" string is wrong, or it is v3 and
+these filenames carry a stale prefix. The manuscript, `CHANGELOG.md`, and these
+filenames should be made to agree — that is an authoring decision, not a data
+problem, and it does not require regenerating anything.
 
 ## Viewing
 

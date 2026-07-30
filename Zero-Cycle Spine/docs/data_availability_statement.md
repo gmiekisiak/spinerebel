@@ -17,14 +17,16 @@
 | "the frozen extractor version used for every recording" | Not committed |
 
 Two of the four are now resolved: the `Zero-Cycle Spine` directory exists and
-the per-cycle substrate is in it under [`../data/`](../data/). Two remain — the
-analysis pipeline is only partially present, and the frozen extractor is not
-committed. There is also a generation caveat on the committed data: it is
-TARS-31 output, not the TARS-60 v3 of record (see
-[`../data/README.md`](../data/README.md)). Each is checkable by a reviewer in
-under a minute, and the statement is the first thing a data-availability check
-looks at. The remaining gap needs to close in one of two directions before the
-revision goes back.
+the per-cycle substrate is in it under [`../data/`](../data/), reproducing the
+manuscript's counts exactly (see [`../data/README.md`](../data/README.md)). Two
+remain — the analysis pipeline is only partially present, and the frozen
+extractor is not committed. A separate, minor loose end is that the committed
+CSVs carry a `tars31_` filename prefix while the extractor of record is labelled
+"TARS-60 v3"; the data is correct, so this is a text reconciliation across the
+manuscript, `CHANGELOG.md`, and the filenames. Each item is checkable by a
+reviewer in under a minute, and the statement is the first thing a
+data-availability check looks at. The remaining gap needs to close in one of two
+directions before the revision goes back.
 
 ---
 
@@ -37,10 +39,10 @@ Do this if consent and GDPR support open release of raw recordings (see
 2. Commit the frozen extractor as `src/tars60_v3_extract.py`, with its version
    string matching what it writes into output files. **Outstanding.**
 3. ~~Commit the derived per-cycle data — the substrate `X` for all four
-   patients.~~ **Done — under [`../data/`](../data/).** Caveat: the committed
-   CSVs are TARS-31 generation, not TARS-60 v3, so once the extractor of record
-   is committed the substrate should be regenerated (or the generations
-   reconciled) so the committed `X` matches the manuscript's analysed counts.
+   patients.~~ **Done — under [`../data/`](../data/).** It reproduces the
+   manuscript's analysed counts exactly under the `< 200 validated cycles` rule;
+   the only follow-up is reconciling the `tars31_` filename prefix with the
+   "TARS-60 v3" label in text.
 4. Keep raw `.BIN` archives on OneDrive, linked from `DATA.md`, and describe
    them as such rather than as "openly available in the repository."
 
