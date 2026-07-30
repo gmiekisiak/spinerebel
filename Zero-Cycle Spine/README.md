@@ -148,13 +148,14 @@ manifest; it does not silently replace the published one. See
 The extractor version of record is **TARS-60 v3**.
 
 > **The per-cycle data are committed; the extractor is not.** The substrate `X`
-> is in [`data/`](data/), but the CSVs there are TARS-31 extractor-generation
-> output, not TARS-60 v3, and the per-patient cycle counts differ from the
-> manuscript's analysed set for every patient except K. The extractor itself —
-> the program that reads `.BIN` and emits the per-cycle columns — is still not
-> in this repository, though the published Data Availability Statement asserts
-> that it is. See [`data/README.md`](data/README.md) for the generation caveat,
-> [`REPRODUCE.md`](REPRODUCE.md) for what this blocks, and
+> is in [`data/`](data/) and reproduces the manuscript's per-patient counts
+> exactly under the paper's `< 200 validated cycles` exclusion rule (88,027
+> retained; see [`data/README.md`](data/README.md)). The one loose end is the
+> `tars31_` filename prefix versus the "TARS-60 v3" label of record, which is a
+> text reconciliation, not a data problem. The extractor itself — the program
+> that reads `.BIN` and emits the per-cycle columns — is still not in this
+> repository, though the published Data Availability Statement asserts that it
+> is. See [`REPRODUCE.md`](REPRODUCE.md) for what this blocks and
 > [`docs/data_availability_statement.md`](docs/data_availability_statement.md)
 > for the wording consequences.
 

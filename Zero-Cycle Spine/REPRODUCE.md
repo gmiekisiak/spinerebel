@@ -13,9 +13,11 @@ per patient), so the stages below that start from `X` can be run directly.
 | `X` → Table 1 (Cliff's delta) | Data present (`data/`); analysis script not committed |
 | `X` → Spearman activity analysis | Data present (`tars31_timeline.csv`); analysis script not committed |
 
-The committed `X` is TARS-31 extractor generation, not the TARS-60 v3 of
-record; see [`data/README.md`](data/README.md) before treating these numbers
-as the substrate of record.
+Applying the paper's `< 200 validated cycles` exclusion rule to the committed
+`X` reproduces the published per-patient counts exactly (88,027 retained across
+four excluded days); see [`data/README.md`](data/README.md). The `tars31_`
+filename prefix versus the manuscript's "TARS-60 v3" label is a naming loose end
+to reconcile in text, not a data discrepancy.
 
 ### What the published statement claims
 
@@ -44,13 +46,14 @@ rather than the sensor, extraction is the step reviewers will most want to
 inspect. Committing it needs: the source, a version tag matching the string
 written into the output, and its dependency list.
 
-Note on generation: the committed `data/` CSVs are TARS-31 generation output
-(the `tars31_` filenames and `{date}_cycles.csv` naming), whereas the extractor
-of record is TARS-60 v3. `src/tars31_ribbon_gui.py` now reads these
-`{date}_cycles.csv` files directly (`CSV_SUFFIX = '_cycles'`). The generation
-mismatch between the committed data and the extractor of record still has to be
-reconciled — mixing generations in one comparative analysis violates the
-study's own frozen-extractor rule.
+Note on naming: `src/tars31_ribbon_gui.py` reads the committed
+`{date}_cycles.csv` files directly (`CSV_SUFFIX = '_cycles'`). The committed
+data reproduces the manuscript's counts exactly (see
+[`data/README.md`](data/README.md)), so it is the extractor output behind the
+published results. What remains is purely a labelling question — the `tars31_`
+filename prefix versus the manuscript's "TARS-60 v3" string — which the
+manuscript, `CHANGELOG.md`, and the filenames should be made to agree on. No
+regeneration is required.
 
 ## 1. Environment
 

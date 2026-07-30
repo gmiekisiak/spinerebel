@@ -24,12 +24,12 @@ Figure style:
 NOTE ON EXTRACTOR VERSION
 -------------------------
 This viewer reads the per-day {date}_cycles.csv files committed under data/.
-Those files are TARS-31 extractor-generation output. The frozen extractor of
-record for the accompanying manuscript is TARS-60 v3. Before this is used to
-produce published figures, confirm that the column semantics of p0_r / p3_r
-are identical across generations, or repoint it at the TARS-60 v3 output.
-Derived biomarkers are detector-version dependent and generations must not be
-mixed within one comparative analysis. See CHANGELOG.md.
+Those files reproduce the manuscript's per-patient counts exactly under the
+paper's <200-validated-cycle exclusion rule, so they are the extractor output
+behind the published results (see data/README.md). The filenames carry a
+tars31_ prefix while the extractor of record is labelled TARS-60 v3; that is a
+naming reconciliation for the manuscript / CHANGELOG.md / filenames to settle,
+not a data discrepancy.
 
 The per-patient tars31_cohort_cycles.csv aggregate is deliberately excluded
 from day discovery (the glob requires a date-prefixed filename), so the whole
