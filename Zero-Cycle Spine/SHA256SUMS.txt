@@ -1,0 +1,3 @@
+# PLACEHOLDER — regenerate with scripts/make_sums.ps1 before publishing.
+# One line per uploaded archive: <sha256>  <relative/path.zip>
+# Two spaces between hash and path. LF line endings. No BOM.
