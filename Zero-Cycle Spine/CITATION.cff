@@ -1,0 +1,63 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the article below."
+title: "spinerebel: Zero-Cycle per-cycle spinal motion analysis"
+abstract: >-
+  Recording format specification, reference reader, and analysis code
+  accompanying the Zero-Cycle continuous at-home spinal motion monitoring
+  study: a per-cycle machine-learning substrate derived from a dual
+  magnetometer-free IMU garment.
+type: software
+authors:
+  - family-names: Miekisiak
+    given-names: Grzegorz
+    affiliation: "Vratislavia Medica, Wrocław, Poland"
+    email: gmiekisiak@gmail.com
+  - family-names: Szczepański
+    given-names: Tomasz
+    affiliation: >-
+      Clinical Department of Neurosurgery, Center for Neurologic Disorders,
+      4th Military Hospital, Wrocław, Poland
+  - family-names: Palczewska
+    given-names: Anna
+    affiliation: "Vratislavia Medica, Wrocław, Poland"
+repository-code: "https://github.com/gmiekisiak/spinerebel"
+license: MIT
+keywords:
+  - continuous monitoring
+  - home monitoring
+  - machine-learning substrate
+  - per-cycle features
+  - spine
+  - inertial measurement unit
+  - magnetometer-free
+  - drift correction
+  - cone of economy
+preferred-citation:
+  type: article
+  title: >-
+    Zero-Cycle: First Continuous, Unsupervised, At-Home Monitoring of Spinal
+    Motion as a Per-Cycle Substrate for Machine Learning
+  authors:
+    - family-names: Miekisiak
+      given-names: Grzegorz
+    - family-names: Szczepański
+      given-names: Tomasz
+    - family-names: Palczewska
+      given-names: Anna
+  journal: Sensors
+  year: 2026
+  # Add the DOI on acceptance; add ORCID identifiers alongside the author
+  # entries above at the same time.
+references:
+  - type: article
+    title: >-
+      Torso-mounted pedestrian dead reckoning using nadir-based Zero-Cycle
+      heading and differential accelerometry
+    authors:
+      - family-names: Miekisiak
+        given-names: Grzegorz
+    journal: "IEEE Sensors Letters"
+    year: 2026
+    volume: 10
+    issue: 8
+    doi: 10.1109/LSENS.2026.3702726
