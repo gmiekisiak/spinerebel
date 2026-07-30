@@ -4,13 +4,14 @@ TARS-31 RIBBON PLOTTER — GUI
 ============================
 
 Interactive viewer for the multi-panel SCEP ribbon figure built from
-{day}_TARS31.csv files produced by the extractor.
+{day}_cycles.csv files produced by the extractor.
 
 Workflow:
-  1. Browse to parent directory (containing *_TARS31.csv)
+  1. Browse to a patient directory (containing {date}_cycles.csv files,
+     e.g. data/Z)
   2. Hit "Plot" -> multi-panel figure renders inline
   3. Toolbar gives zoom / pan / save
-  4. "Save PNG" button writes ribbon_TARS31.png to parent dir
+  4. "Save PNG" button writes ribbon_cycles.png to parent dir
   5. "Blowout report" button shows which BIN files produced bad cycles
   6. Day-include checklist on left lets you toggle days off
 
@@ -22,13 +23,17 @@ Figure style:
 
 NOTE ON EXTRACTOR VERSION
 -------------------------
-This viewer reads *_TARS31.csv, i.e. output of the TARS-31 extractor
-generation. The frozen extractor of record for the accompanying manuscript is
-TARS-60 v3. Before this is used to produce published figures, either point
-CSV_SUFFIX at the TARS-60 v3 output naming, or confirm that the column
-semantics of p0_r / p3_r are identical across generations. Derived biomarkers
-are detector-version dependent and generations must not be mixed within one
-comparative analysis. See CHANGELOG.md.
+This viewer reads the per-day {date}_cycles.csv files committed under data/.
+Those files are TARS-31 extractor-generation output. The frozen extractor of
+record for the accompanying manuscript is TARS-60 v3. Before this is used to
+produce published figures, confirm that the column semantics of p0_r / p3_r
+are identical across generations, or repoint it at the TARS-60 v3 output.
+Derived biomarkers are detector-version dependent and generations must not be
+mixed within one comparative analysis. See CHANGELOG.md.
+
+The per-patient tars31_cohort_cycles.csv aggregate is deliberately excluded
+from day discovery (the glob requires a date-prefixed filename), so the whole
+cohort is not plotted as a single spurious "day".
 
 Author: Grzegorz Miekisiak, MD PhD / SpineRebel Technology
   (earlier drafts of this file carried a different surname; confirm the
@@ -56,7 +61,7 @@ from matplotlib.backends.backend_tkagg import (
 # CONFIG — match published figure style
 # ============================================================================
 
-CSV_SUFFIX  = '_TARS31'        # extractor output naming; see note above
+CSV_SUFFIX  = '_cycles'        # extractor output naming; see note above
 VALLEY_COL  = 'p0_r'           # NZ Position (cm from hub at cycle start)
 PEAK_COL    = 'p3_r'           # Excursion (cm from hub at apex)
 COH_THRESH  = 3.0              # cm — gap < 3 cm = "cohesive cycle"
@@ -85,9 +90,14 @@ COL_PEAK_LINE   = '#f0726c'    # lighter red for trend
 # ============================================================================
 
 def find_csvs(parent_dir):
-    """Sorted list of {YYYY-MM-DD}{CSV_SUFFIX}.csv paths."""
+    """Sorted list of {YYYY-MM-DD}{CSV_SUFFIX}.csv paths.
+
+    The leading [0-9] restricts the match to date-prefixed daily files, so the
+    per-patient tars31_cohort_cycles.csv aggregate (which also ends in
+    _cycles.csv) is not picked up as a day.
+    """
     parent = Path(parent_dir)
-    pattern = f"*{CSV_SUFFIX}.csv"
+    pattern = f"[0-9]*{CSV_SUFFIX}.csv"
     csvs = sorted(glob.glob(str(parent / pattern)))
     if not csvs:
         csvs = sorted(glob.glob(str(parent / "**" / pattern), recursive=True))

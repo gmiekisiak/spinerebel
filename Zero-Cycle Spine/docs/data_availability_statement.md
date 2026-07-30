@@ -11,14 +11,20 @@
 
 | Claim | Status |
 |---|---|
-| "openly available" | Data are on OneDrive, linked from the repo — not in it |
-| "in the Zero-Cycle Spine directory" | No such directory exists |
+| "openly available" | Per-cycle data are now committed under `data/`; raw `.BIN` remain on OneDrive, linked from the repo |
+| "in the Zero-Cycle Spine directory" | Resolved — this is that directory |
 | "the analysis pipeline" | Partial: stream viewer only |
 | "the frozen extractor version used for every recording" | Not committed |
 
-Every one of the four is checkable by a reviewer in under a minute, and the
-statement is the first thing a data-availability check looks at. This needs to
-close in one of two directions before the revision goes back.
+Two of the four are now resolved: the `Zero-Cycle Spine` directory exists and
+the per-cycle substrate is in it under [`../data/`](../data/). Two remain — the
+analysis pipeline is only partially present, and the frozen extractor is not
+committed. There is also a generation caveat on the committed data: it is
+TARS-31 output, not the TARS-60 v3 of record (see
+[`../data/README.md`](../data/README.md)). Each is checkable by a reviewer in
+under a minute, and the statement is the first thing a data-availability check
+looks at. The remaining gap needs to close in one of two directions before the
+revision goes back.
 
 ---
 
@@ -27,12 +33,14 @@ close in one of two directions before the revision goes back.
 Do this if consent and GDPR support open release of raw recordings (see
 [`../ETHICS.md`](../ETHICS.md), which flags both as open items).
 
-1. Create `Zero-Cycle Spine/` in the repository.
+1. ~~Create `Zero-Cycle Spine/` in the repository.~~ **Done.**
 2. Commit the frozen extractor as `src/tars60_v3_extract.py`, with its version
-   string matching what it writes into output files.
-3. Commit the derived per-cycle data — the substrate `X` for all four patients.
-   At six columns plus metadata per cycle and 88,027 cycles, this is a few tens
-   of megabytes: comfortably inside git, no LFS needed.
+   string matching what it writes into output files. **Outstanding.**
+3. ~~Commit the derived per-cycle data — the substrate `X` for all four
+   patients.~~ **Done — under [`../data/`](../data/).** Caveat: the committed
+   CSVs are TARS-31 generation, not TARS-60 v3, so once the extractor of record
+   is committed the substrate should be regenerated (or the generations
+   reconciled) so the committed `X` matches the manuscript's analysed counts.
 4. Keep raw `.BIN` archives on OneDrive, linked from `DATA.md`, and describe
    them as such rather than as "openly available in the repository."
 
