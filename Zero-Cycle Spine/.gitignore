@@ -1,10 +1,18 @@
-# Never commit recordings or derived data to git — they live elsewhere.
+# Raw recordings and packed archives live elsewhere — never in git.
 *.BIN
 *.bin
 *.TAU
 *.zip
+
+# Loose extractor CSVs dropped anywhere OTHER than data/ are ignored, so a
+# stray working-directory export is never committed by accident.
 *_TARS31.csv
 *_TARS60.csv
+
+# The per-cycle substrate under data/ IS committed on purpose — it is the
+# published result and the thing the manuscript is about. Keep it tracked.
+!data/
+!data/**
 
 # Manifests ARE committed — they are the integrity record.
 !SHA256SUMS.txt

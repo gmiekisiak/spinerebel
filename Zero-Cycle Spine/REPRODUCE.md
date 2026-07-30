@@ -2,13 +2,20 @@
 
 ## 0. Status
 
+The per-cycle substrate `X` is committed under [`data/`](data/) (one directory
+per patient), so the stages below that start from `X` can be run directly.
+
 | Stage | Reproducible from this repository? |
 |---|---|
 | `.BIN` → per-cycle substrate `X` | **No — extractor not committed** |
-| `X` → Figure 2 (per-cycle stream) | Yes, `src/tars31_ribbon_gui.py` |
-| `X` → Figure 3 (Best-200 trajectories) | Not committed |
-| `X` → Table 1 (Cliff's delta) | Not committed |
-| `X` → Spearman activity analysis | Not committed |
+| `X` → Figure 2 (per-cycle stream) | Yes, `src/tars31_ribbon_gui.py` on `data/<patient>` |
+| `X` → Figure 3 (Best-200 trajectories) | Data present (`tars31_timeline.csv`); plotting script not committed |
+| `X` → Table 1 (Cliff's delta) | Data present (`data/`); analysis script not committed |
+| `X` → Spearman activity analysis | Data present (`tars31_timeline.csv`); analysis script not committed |
+
+The committed `X` is TARS-31 extractor generation, not the TARS-60 v3 of
+record; see [`data/README.md`](data/README.md) before treating these numbers
+as the substrate of record.
 
 ### What the published statement claims
 
@@ -19,10 +26,11 @@ The manuscript's Data Availability Statement reads:
 > together with the analysis pipeline and the frozen extractor version used for
 > every recording in this study.*
 
-Three commitments there are not currently met: there is no `Zero-Cycle Spine`
-directory, the frozen extractor is not committed, and the data are not in the
-repository. Either the repository is brought into line with the statement or
-the statement is amended at revision. See
+Of the three commitments there, two are now met: this is the `Zero-Cycle Spine`
+directory, and the per-cycle data are committed under [`data/`](data/). The
+remaining gap is the frozen extractor, which is not committed. Either the
+repository is brought fully into line with the statement or the statement is
+amended at revision. See
 [`docs/data_availability_statement.md`](docs/data_availability_statement.md).
 
 ### The blocking gap
@@ -36,10 +44,13 @@ rather than the sensor, extraction is the step reviewers will most want to
 inspect. Committing it needs: the source, a version tag matching the string
 written into the output, and its dependency list.
 
-Note that `src/tars31_ribbon_gui.py` reads `*_TARS31.csv`, i.e. the TARS-31
-generation, whereas the extractor of record is TARS-60 v3. Either repoint
-`CSV_SUFFIX` or reconcile the naming. Mixing generations in one comparative
-analysis violates the study's own frozen-extractor rule.
+Note on generation: the committed `data/` CSVs are TARS-31 generation output
+(the `tars31_` filenames and `{date}_cycles.csv` naming), whereas the extractor
+of record is TARS-60 v3. `src/tars31_ribbon_gui.py` now reads these
+`{date}_cycles.csv` files directly (`CSV_SUFFIX = '_cycles'`). The generation
+mismatch between the committed data and the extractor of record still has to be
+reconciled — mixing generations in one comparative analysis violates the
+study's own frozen-extractor rule.
 
 ## 1. Environment
 
@@ -117,10 +128,13 @@ reimplementation that filters failed returns is measuring something else.
 ## 5. Figure 2 — per-cycle stream
 
 ```bash
-python src/tars31_ribbon_gui.py /path/to/PatientZ
+python src/tars31_ribbon_gui.py data/Z
 ```
 
-Browse to the directory, **Load CSVs**, **Plot**. Blue = valley (`p0_r`),
+This reads the committed per-day `{date}_cycles.csv` files directly — no
+download or extraction step needed for Figure 2. Browse to a patient directory
+(`data/Z`, `data/K`, `data/P`, `data/F`), **Load CSVs**, **Plot**. Blue =
+valley (`p0_r`),
 red = peak (`p3_r`), with a rolling-median trend per ribbon. One panel per
 recording day, that day's files concatenated in order.
 

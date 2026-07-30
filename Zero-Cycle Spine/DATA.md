@@ -4,12 +4,21 @@
 
 | Object | Location |
 |---|---|
-| Per-cycle substrate `X` (all four patients) | *to be committed to this repository* |
+| Per-cycle substrate `X` (all four patients) | [`data/`](data/) — committed (TARS-31 generation; see caveat) |
 | Frozen extractor TARS-60 v3 | *to be committed to this repository* |
 | Raw `.BIN` recordings (~1 GB) | linked below |
 
+The per-cycle data are now in the repository under [`data/`](data/), one
+directory per patient (Z, K, P, F); see [`data/README.md`](data/README.md) for
+the layout and columns. **Caveat:** the committed CSVs are TARS-31
+extractor-generation output, whereas the frozen extractor of record is
+TARS-60 v3, and the per-patient cycle counts differ from the manuscript's
+analysed set for every patient except K. Reconcile the generation before these
+are treated as the substrate of record — see [`data/README.md`](data/README.md)
+and [`CHANGELOG.md`](CHANGELOG.md).
+
 The manuscript's Data Availability Statement and the current repository state
-do not yet agree. See
+still do not fully agree — the frozen extractor remains uncommitted. See
 [`docs/data_availability_statement.md`](docs/data_availability_statement.md)
 before publication.
 

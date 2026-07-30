@@ -24,6 +24,7 @@ integrity manifests, and the recordings themselves.
 
 | Path | Purpose |
 |---|---|
+| [`data/`](data/) | The per-cycle substrate `X` — one directory per patient (Z, K, P, F) |
 | [`DATA.md`](DATA.md) | Where the recordings are, and how to verify them |
 | [`FORMAT.md`](FORMAT.md) | Byte-level specification of the `.BIN` recording format |
 | [`REPRODUCE.md`](REPRODUCE.md) | Step-by-step reproduction of the manuscript figures |
@@ -107,7 +108,8 @@ Per cycle, in the local frame:
 Stacked over a recording these form the substrate object
 `X = [x₁ … x_N]ᵀ ∈ ℝ^(N×d)`. Each row is one cycle, carrying wall-clock
 timestamp, cycle duration, and bout identifier. **X, not the sensor, is the
-deliverable of this work.**
+deliverable of this work.** It is committed under [`data/`](data/), one
+directory per patient — see [`data/README.md`](data/README.md).
 
 Cycles in which the return *failed* are retained as informative samples rather
 than discarded. This is central to the method, not a tolerance: any
@@ -145,10 +147,14 @@ manifest; it does not silently replace the published one. See
 
 The extractor version of record is **TARS-60 v3**.
 
-> **Not yet committed.** The extractor itself — the program that reads `.BIN`
-> and emits the per-cycle columns — is not in this repository. The published
-> Data Availability Statement asserts that it is. See
-> [`REPRODUCE.md`](REPRODUCE.md) for what this blocks and
+> **The per-cycle data are committed; the extractor is not.** The substrate `X`
+> is in [`data/`](data/), but the CSVs there are TARS-31 extractor-generation
+> output, not TARS-60 v3, and the per-patient cycle counts differ from the
+> manuscript's analysed set for every patient except K. The extractor itself —
+> the program that reads `.BIN` and emits the per-cycle columns — is still not
+> in this repository, though the published Data Availability Statement asserts
+> that it is. See [`data/README.md`](data/README.md) for the generation caveat,
+> [`REPRODUCE.md`](REPRODUCE.md) for what this blocks, and
 > [`docs/data_availability_statement.md`](docs/data_availability_statement.md)
 > for the wording consequences.
 
@@ -164,8 +170,8 @@ pip install -r requirements.txt
 # inspect a raw recording
 python src/read_bin.py path/to/DATA_20260206_181927_18.BIN --summary
 
-# view the per-cycle stream from derived CSVs
-python src/tars31_ribbon_gui.py path/to/patient_dir
+# view the per-cycle stream from the committed CSVs
+python src/tars31_ribbon_gui.py data/Z
 ```
 
 ---
